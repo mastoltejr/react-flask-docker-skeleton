@@ -11,7 +11,7 @@ FROM nginx:alpine
 RUN rm /etc/nginx/conf.d/default.conf
 COPY --from=build /app/build /usr/share/nginx/html
 COPY ./nginx/nginx.conf /etc/nginx/conf.d
-RUN apk update && apk add bash
-RUN chmod 0755 /usr/share/nginx/html
+#RUN apk update && apk add bash
+#RUN chmod 0755 /usr/share/nginx/html
 EXPOSE 3005
 CMD ["nginx", "-g", "daemon off;"]
