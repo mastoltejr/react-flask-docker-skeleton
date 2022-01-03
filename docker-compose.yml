@@ -30,6 +30,6 @@ services:
       - api
 
 networks:
-  default:
-    external: true
-    name: stoltenet
+  stoltenet:
+    external:
+      name: stoltenet
