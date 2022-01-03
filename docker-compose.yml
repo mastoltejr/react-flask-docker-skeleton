@@ -4,16 +4,16 @@ services:
   api:
     restart: unless-stopped
     build: server
-    command: "flask run --host=wedding_api --port=5005"
+    command: 'flask run --host=wedding_api --port=5005'
     environment:
       - FLASK_ENV=production
       - FLASK_APP=server.py
     networks:
-      votr:
+      bridge:
         aliases:
-         - wedding_api
+          - wedding_api
     ports:
-      - "5005:5005"
+      - '5005:5005'
 
   client:
     restart: unless-stopped
@@ -21,15 +21,15 @@ services:
     links:
       - api
     networks:
-      votr:
+      bridge:
         aliases:
-         - wedding_client
+          - wedding_client
     ports:
       - '3005:80'
     depends_on:
       - api
 
 networks:
-  votr:
-    name: votr
-  
+  default:
+    external: true
+    name: bridge
