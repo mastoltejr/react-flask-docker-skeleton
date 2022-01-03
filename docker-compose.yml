@@ -9,7 +9,7 @@ services:
       - FLASK_ENV=production
       - FLASK_APP=server.py
     networks:
-      bridge:
+      stoltenet:
         aliases:
           - wedding_api
     ports:
@@ -21,7 +21,7 @@ services:
     links:
       - api
     networks:
-      bridge:
+      stoltenet:
         aliases:
           - wedding_client
     ports:
@@ -32,4 +32,4 @@ services:
 networks:
   default:
     external: true
-    name: bridge
+    name: stoltenet
